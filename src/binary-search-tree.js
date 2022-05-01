@@ -23,7 +23,6 @@ class BinarySearchTree {
       this.roots = new Node(data);
       return;
     } else {
-
       const tree = (node) => {
         if (data < node.data) {
           if (node.left !== null) {
