@@ -23,20 +23,21 @@ class BinarySearchTree {
       this.root = new Node(data);
       return;
     } else {
+      
       const tree = (node) => {
         if (data < node.data) {
-          if (node.left === null) {
-            node.left = new Node(data);
-            return;
-          } else if (node.left !== null) {
+          if (node.left !== null) {
             return tree(node.left);
+          } else if (node.left === null) {
+            node.left = new Node(data);
+            return;            
           }
         } else if (data > node.data) {
-          if (node.right === null) {
-            node.right = new Node(data);
-            return;
-          } else if (node.right !== null) {
+          if (node.right !== null) {
             return tree(node.right);
+          } else if (node.right === null) {
+            node.right = new Node(data);
+            return;            
           }
         } else {
           return null;
@@ -84,12 +85,12 @@ class BinarySearchTree {
         if (node.right == null && node.left == null) {
           return null;
         }
-        if (node.left == null) {
-          return node.right;
-        }
-        if (node.right == null) {
+        else if (node.right == null) {
           return node.left;
         }
+        else if (node.left == null) {
+          return node.right;
+        }        
         let provNode = node.right;
         while (provNode.left !== null) {
           provNode = provNode.left;
