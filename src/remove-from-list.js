@@ -27,11 +27,11 @@ function removeKFromList(l, k) {
   if (l == null) {
     return l;
   }
-  while (l.value == k && l != null) {
+  while (l.value === k && l !== null) {
     l = l.next;
   }
-  while (number != null && number.next != null) {
-    if (number.next.value == k) {
+  while (number !== null && number.next !== null) {
+    if (number.next.value === k) {
       number.next = number.next.next;
     } else {
       number = number.next;
